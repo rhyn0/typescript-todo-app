@@ -1,0 +1,12 @@
+{
+   "typescript.tsdk": "node_modules/typescript/lib",
+   "prettier.requireConfig": true,
+   "prettier.configPath": ".prettierrc.json",
+   "editor.formatOnSave": true,
+   "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "eslint.validate": [
+      // Autofix is enabled by default
+      "typescript",
+      "typescriptreact"
+   ]
+}
