@@ -8,5 +8,6 @@
       // Autofix is enabled by default
       "typescript",
       "typescriptreact"
-   ]
+   ],
+   "tailwindCSS.experimental.configFile": "tailwind.config.ts"
 }
