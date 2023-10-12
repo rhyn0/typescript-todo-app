@@ -3,3 +3,4 @@
 
 npm run lint
 npx prettier --config=./.prettierrc.json --check .
+npx eslint --config ./.eslintrc.json --fix .

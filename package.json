@@ -10,9 +10,13 @@
       "prepare": "husky install"
    },
    "dependencies": {
+      "@emotion/react": "^11.11.1",
+      "@emotion/styled": "^11.11.0",
+      "@mui/material": "^5.14.13",
       "next": "13.5.4",
       "react": "^18",
-      "react-dom": "^18"
+      "react-dom": "^18.2.0",
+      "react-icons": "^4.11.0"
    },
    "devDependencies": {
       "@types/node": "^20",
@@ -20,7 +24,7 @@
       "@types/react-dom": "^18",
       "@typescript-eslint/eslint-plugin": "^6.7.5",
       "@typescript-eslint/parser": "^6.7.5",
-      "autoprefixer": "^10",
+      "autoprefixer": "^10.4.16",
       "eslint": "^8.51.0",
       "eslint-config-next": "13.5.4",
       "husky": "^8.0.3",
