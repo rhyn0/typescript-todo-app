@@ -1,9 +1,9 @@
 // A checkbox component that is reactive for a user
 // this component does not actually own its state as the parent object needs to
 
-import React, { ChangeEventHandler, SetStateAction } from "react";
-import { FormControlLabel, Checkbox } from "@mui/material";
-import { RiCheckboxBlankCircleLine, RiCheckLine } from "react-icons/ri";
+import React from "react";
+import { Checkbox } from "@mui/material";
+import cn from "classnames";
 
 // notify other components of changes in this checkbox
 // this Prop type accepts in a state variable of type boolean
@@ -11,34 +11,26 @@ import { RiCheckboxBlankCircleLine, RiCheckLine } from "react-icons/ri";
 // and the name of the checkbox
 type CheckboxProps = {
    isChecked: boolean;
-   setIsChecked: (value: SetStateAction<boolean>) => void;
-   name: string;
-   children?: React.ReactNode;
-   label?: string;
+   setIsChecked: (value: boolean) => void;
+   className?: string;
 };
 
 export default function SimpleCheckbox({
    isChecked,
    setIsChecked,
-   name,
-   label,
+   className,
 }: CheckboxProps) {
-   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       setIsChecked(e.target.checked);
    };
+   if (typeof className === "undefined") {
+      className = "";
+   }
    return (
-      <FormControlLabel
-         control={
-            <Checkbox
-               inputProps={{ "aria-label": "controlled" }}
-               checked={isChecked}
-               onChange={handleChange}
-               name={name}
-               icon={<RiCheckboxBlankCircleLine />}
-               checkedIcon={<RiCheckLine />}
-            />
-         }
-         label={label}
+      <Checkbox
+         checked={isChecked}
+         onChange={handleChange}
+         className={cn(className, { "line-through": isChecked })}
       />
    );
 }
