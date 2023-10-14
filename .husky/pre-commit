@@ -2,5 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run lint
-npx prettier --config=./.prettierrc.json --check .
+npx prettier --config=./.prettierrc.json --check --ignore-unknown --cache .
 npx eslint --config ./.eslintrc.json --fix .
