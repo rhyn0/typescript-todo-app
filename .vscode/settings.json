@@ -9,5 +9,6 @@
       "typescript",
       "typescriptreact"
    ],
-   "tailwindCSS.experimental.configFile": "tailwind.config.ts"
+   "tailwindCSS.experimental.configFile": "tailwind.config.ts",
+   "editor.tabSize": 3
 }
