@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import { Fab, FormControl, TextField } from "@mui/material";
+import { Fab, FormControl, InputBase } from "@mui/material";
 import cn from "classnames";
+import TodoCard from "./TodoCard";
 interface TodoListProps {
    className?: string;
 }
@@ -37,12 +38,16 @@ function TodoList({ className }: TodoListProps) {
    };
    return (
       <div className={cn(className)}>
-         <FormControl>
-            <TextField
+         <FormControl className="flex flex-row w-full justify-center">
+            <InputBase
                id="todo-input"
+               placeholder="Next Todo"
+               // make the input box a rounded rectangle, by editing the sx props
+               sx={{ ml: 1, flex: 1, borderRadius: 10 }}
+               fullWidth={true}
+               margin="dense"
                onChange={onInputChange}
                value={todoInput}
-               label={"Next ToDo"}
                onKeyDown={onKeyPress}
             />
             <Fab
@@ -50,13 +55,25 @@ function TodoList({ className }: TodoListProps) {
                onClick={() => {
                   onInputSubmit();
                }}
+               className="mr-0"
             >
                Add
             </Fab>
          </FormControl>
-         {todoList.map((todo) => (
-            <div key={todo.id}>{todo.text}</div>
-         ))}
+         <div id="todo-list" className="flex flex-col overflow-x-scroll">
+            {todoList.map((todo, idx) => (
+               <TodoCard
+                  key={todo.id}
+                  title={todo.text}
+                  isDone={todo.done}
+                  onChange={() => {
+                     const newTodoList = [...todoList];
+                     newTodoList[idx].done = !newTodoList[idx].done;
+                     setTodoList(newTodoList);
+                  }}
+               />
+            ))}
+         </div>
       </div>
    );
 }

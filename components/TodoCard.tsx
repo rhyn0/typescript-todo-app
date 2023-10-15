@@ -9,7 +9,7 @@ type TodoCardProps = {
    isDone: boolean;
    onChange: (value: boolean) => void;
    title: string;
-   description: string;
+   description?: string;
    className?: string;
 };
 
@@ -20,8 +20,9 @@ export default function TodoCard({
    description,
    className,
 }: TodoCardProps) {
+   // TODO: try Card from @mui/material
    return (
-      <div className="flex flex-col justify-items-end">
+      <div className="flex flex-col justify-items-end w-full">
          <p>Todo Card</p>
          <FormControlLabel
             control={
