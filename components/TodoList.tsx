@@ -43,24 +43,40 @@ function TodoList({ className }: TodoListProps) {
                id="todo-input"
                placeholder="Next Todo"
                // make the input box a rounded rectangle, by editing the sx props
-               sx={{ ml: 1, flex: 1, borderRadius: 10 }}
+               sx={{
+                  borderRadius: 10,
+                  border: "1px solid #EAEAEA",
+                  backgroundColor: "#EA78B1",
+                  "padding-left": "10px",
+                  "margin-left": "10px",
+                  "margin-right": "10px",
+               }}
+               inputProps={{ style: { textAlign: "center" } }}
                fullWidth={true}
                margin="dense"
                onChange={onInputChange}
                value={todoInput}
                onKeyDown={onKeyPress}
+               endAdornment={
+                  <Fab
+                     aria-posinset={1}
+                     type="submit"
+                     onClick={() => {
+                        onInputSubmit();
+                     }}
+                     sx={{ "margin-right": "10px", "padding-right": "10px" }}
+                     variant="extended"
+                     className="mr-0"
+                  >
+                     Add
+                  </Fab>
+               }
             />
-            <Fab
-               type="submit"
-               onClick={() => {
-                  onInputSubmit();
-               }}
-               className="mr-0"
-            >
-               Add
-            </Fab>
          </FormControl>
-         <div id="todo-list" className="flex flex-col overflow-x-scroll">
+         <div
+            id="todo-list"
+            className="flex flex-col overflow-y-scroll h-96 divide-y shadow-xl ring-1"
+         >
             {todoList.map((todo, idx) => (
                <TodoCard
                   key={todo.id}
