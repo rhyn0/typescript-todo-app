@@ -10,5 +10,10 @@
       "typescriptreact"
    ],
    "tailwindCSS.experimental.configFile": "tailwind.config.ts",
-   "editor.tabSize": 3
+   "editor.tabSize": 3,
+   "inlineFold.unfoldOnLineSelect": true,
+   "inlineFold.autoFold": true,
+   "inlineFold.maskChar": "▶▶▶",
+   "inlineFold.regex": "(class|className)=[`'{\"]([^`'\"}]{80,})[`'\"}]",
+   "inlineFold.regexGroup": "2"
 }
